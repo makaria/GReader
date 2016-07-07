@@ -7,6 +7,7 @@ const packager = require('electron-packager');
 const config = JSON.parse(fs.readFileSync('package.json'));
 const appVersion = config.version;
 const electronVersion = config.devDependencies['electron-prebuilt'].match(/[\d.]+/)[0];
+var eslint = require('gulp-eslint');
 const options = {
 	asar: true,
 	dir: '.',
@@ -44,9 +45,14 @@ gulp.task('build:windows', () => {
 
 gulp.task('build', ['build:osx', 'build:linux', 'build:windows']);
 
+gulp.task('lint', function() {
+  return gulp.src('*.js')
+    .pipe(eslint())
+    .pipe(eslint.format());
+});
 
 gulp.task('test', () => {
 	// @TODO
 });
 
-gulp.task('default', ['test']);
+gulp.task('default', ['lint', 'test']);

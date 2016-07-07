@@ -1,58 +1,58 @@
-'use strict';
+'use strict'
 
-const fs = require('fs');
-const gulp = require('gulp');
-const packager = require('electron-packager');
+const fs = require('fs')
+const gulp = require('gulp')
+const packager = require('electron-packager')
 
-const config = JSON.parse(fs.readFileSync('package.json'));
-const appVersion = config.version;
-const electronVersion = config.devDependencies['electron-prebuilt'].match(/[\d.]+/)[0];
-var eslint = require('gulp-eslint');
+const config = JSON.parse(fs.readFileSync('package.json'))
+const appVersion = config.version
+const electronVersion = config.devDependencies['electron-prebuilt'].match(/[\d.]+/)[0]
+var eslint = require('gulp-eslint')
 const options = {
-	asar: true,
-	dir: '.',
-	icon: '',
-	name: 'GReader',
-	out: 'dist',
-	overwrite: true,
-	prune: true,
-	version: electronVersion,
-	'app-version': appVersion
-};
+  asar: true,
+  dir: '.',
+  icon: '',
+  name: 'GReader',
+  out: 'dist',
+  overwrite: true,
+  prune: true,
+  version: electronVersion,
+  'app-version': appVersion
+}
 
 gulp.task('build:osx', (done) => {
-	options.arch = 'x64';
-	options.platform = 'darwin';
-	options['app-bundle-id'] = 'com.guohr.greader';
-	options['helper-bundle-id'] = 'com.guohr.greader.helper';
+  options.arch = 'x64'
+  options.platform = 'darwin'
+  options['app-bundle-id'] = 'com.guohr.greader'
+  options['helper-bundle-id'] = 'com.guohr.greader.helper'
 
-	packager(options, (err, paths) => {
-		if (err) {
-			console.error(err);
-		}
+  packager(options, (err, paths) => {
+    if (err) {
+      console.error(err)
+    }
 
-		done();
-	});
-});
+    done()
+  })
+})
 
 gulp.task('build:linux', () => {
-	// @TODO
-});
+  // @TODO
+})
 
 gulp.task('build:windows', () => {
-	// @TODO
-});
+  // @TODO
+})
 
-gulp.task('build', ['build:osx', 'build:linux', 'build:windows']);
+gulp.task('build', ['build:osx', 'build:linux', 'build:windows'])
 
-gulp.task('lint', function() {
+gulp.task('lint', () => {
   return gulp.src('*.js')
     .pipe(eslint())
-    .pipe(eslint.format());
-});
+    .pipe(eslint.format())
+})
 
 gulp.task('test', () => {
-	// @TODO
-});
+  // @TODO
+})
 
-gulp.task('default', ['lint', 'test']);
+gulp.task('default', ['lint', 'test'])

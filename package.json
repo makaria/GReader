@@ -1,9 +1,10 @@
 {
-  "name"    : "GReader",
-  "version" : "0.0.0",
-  "main"    : "index.js",
+  "name": "GReader",
+  "version": "0.0.0",
+  "main": "index.js",
   "devDependencies": {
-    "electron-prebuilt": "^0.26"
+    "electron-prebuilt": "^1.2.3",
+    "eslint": "^3.0.1"
   },
   "scripts": {
     "start": "electron index.js"

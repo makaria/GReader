@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "main": "index.js",
   "devDependencies": {
+    "electron-packager": "^7.2.0",
     "electron-prebuilt": "^1.2.3",
-    "eslint": "^3.0.1"
+    "eslint": "^3.0.1",
+    "gulp": "^3.9.1"
   },
   "scripts": {
     "start": "electron index.js"
   },
   "dependencies": {
-    "gulp": "^3.9.1"
+    "electron": "^0.4.1"
   }
 }

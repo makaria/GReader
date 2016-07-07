@@ -48,4 +48,5 @@ gulp.task('build', ['build:osx', 'build:linux', 'build:windows']);
 gulp.task('test', () => {
 	// @TODO
 });
+
 gulp.task('default', ['test']);

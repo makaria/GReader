@@ -47,9 +47,9 @@ gulp.task('build:windows', () => {
 gulp.task('build', ['build:osx', 'build:linux', 'build:windows'])
 
 gulp.task('lint', () => {
-  return gulp.src('*.js')
-    .pipe(eslint())
-    .pipe(eslint.format())
+  return gulp.src(['*.js', 'test/*.js'])
+  .pipe(eslint())
+  .pipe(eslint.format())
 })
 
 gulp.task('test', () => {

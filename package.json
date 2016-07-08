@@ -1,7 +1,7 @@
 {
   "name": "greader",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "devDependencies": {
     "electron-packager": "^7.2.0",
     "electron-prebuilt": "^1.2.3",
@@ -15,7 +15,7 @@
     "mocha": "^2.5.3"
   },
   "scripts": {
-    "start": "electron index.js"
+    "start": "electron main.js"
   },
   "dependencies": {
     "electron": "^0.4.1",

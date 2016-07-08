@@ -3,11 +3,12 @@
 const fs = require('fs')
 const gulp = require('gulp')
 const packager = require('electron-packager')
-
+const mocha = require('gulp-mocha')
 const config = JSON.parse(fs.readFileSync('package.json'))
 const appVersion = config.version
 const electronVersion = config.devDependencies['electron-prebuilt'].match(/[\d.]+/)[0]
 var eslint = require('gulp-eslint')
+
 const options = {
   asar: true,
   dir: '.',
@@ -52,7 +53,9 @@ gulp.task('lint', () => {
 })
 
 gulp.task('test', () => {
-  // @TODO
+  return gulp.src('test.js', {read: false})
+    // gulp-mocha needs filepaths so you can't have any plugins before it
+    .pipe(mocha({reporter: 'nyan'}))
 })
 
 gulp.task('default', ['lint', 'test'])

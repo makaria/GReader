@@ -7,7 +7,8 @@ const mocha = require('gulp-mocha')
 const config = JSON.parse(fs.readFileSync('package.json'))
 const appVersion = config.version
 const electronVersion = config.devDependencies['electron-prebuilt'].match(/[\d.]+/)[0]
-var eslint = require('gulp-eslint')
+const eslint = require('gulp-eslint')
+const tslint = require('gulp-tslint')
 
 const options = {
   asar: true,
@@ -46,11 +47,21 @@ gulp.task('build:windows', () => {
 
 gulp.task('build', ['build:osx', 'build:linux', 'build:windows'])
 
-gulp.task('lint', () => {
+// lint
+
+gulp.task('lint:ts', () => {
+  return gulp.src(['*.ts', 'app/*.ts'])
+    .pipe(tslint())
+    .pipe(tslint.report('verbose'))
+})
+
+gulp.task('lint:js', () => {
   return gulp.src(['*.js', 'test/*.js'])
   .pipe(eslint())
   .pipe(eslint.format())
 })
+
+gulp.task('lint', ['lint:js', 'lint:ts'])
 
 gulp.task('test', () => {
   return gulp.src('test/test.js', {read: false})

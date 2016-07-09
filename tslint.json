@@ -1,3 +1,14 @@
 {
-    "quotemark": "single"
+    "rules": {
+        "semicolon": [2, "always"],
+        "no-unused-expression": true,
+        "no-unused-variable": true,
+        "no-unreachable": true,
+        "no-duplicate-variable": true,
+        "use-strict": [true],
+        "indent": [2, 4],
+        "curly": false,
+        "no-var-keyword": true,
+        "quotemark": ["single"]
+    }
 }

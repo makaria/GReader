@@ -37,4 +37,11 @@ jspm_packages
 .node_repl_history
 
 # typings
-typings/*
+typings
+typings/globals/core-js/typings.json
+typings/globals/jasmine/typings.json
+typings/index.d.ts
+typings/globals/core-js/typings.json
+typings/globals/node/typings.json
+typings/globals/node/index.d.ts
+typings/globals/jasmine/index.d.ts

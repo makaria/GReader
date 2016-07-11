@@ -1,7 +1,7 @@
 'use strict'
 const electron = require('electron')
-const {app, BrowserWindow, Menu} = electron
-const menuTpl = require('./js/menu')
+const {app, BrowserWindow} = electron
+const menu = require('./js/menu')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -22,8 +22,7 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadURL(path.join('file://', __dirname, 'index.html'))
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  menu.setMenu()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -32,8 +31,6 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-
-  Menu.setApplicationMenu(Menu.buildFromTemplate(menuTpl))
 
   // For some reason, Electron shortcuts are registered
   // globally, which means that the app listers for shorcuts

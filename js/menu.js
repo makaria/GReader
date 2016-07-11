@@ -25,8 +25,9 @@ const menu = [
     label: 'View',
     submenu: [
       {
-        label: 'Toggle Full Screen',
+        label: 'Full Screen',
         accelerator: process.platform === 'darwin' ? 'Ctrl+Command+F' : 'F11',
+        type: 'checkbox',
         click (item, focusedWindow) {
           if (focusedWindow) {
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
@@ -34,12 +35,9 @@ const menu = [
         }
       },
       {
-        label: 'Toggle Developer Tools',
-        accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+        label: 'menubar',
+        accelerator: process.platform === 'darwin' ? 'Alt+Command+M' : 'Ctrl+Shift+M',
         click (item, focusedWindow) {
-          if (focusedWindow) {
-            focusedWindow.webContents.toggleDevTools()
-          }
         }
       }
     ]
@@ -141,4 +139,11 @@ if (process.platform === 'darwin') {
   ]
 }
 
-module.exports = menu
+module.exports = {
+  setMenu: () => {
+    Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+  },
+  clearMenu: () => {
+    Menu.setApplicationMenu(null)
+  }
+}

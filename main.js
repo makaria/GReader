@@ -15,7 +15,7 @@ app.on('window-all-closed', () => {
   }
 })
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({ width: 800, height: 600 })
 
@@ -47,23 +47,21 @@ function createWindow() {
     electron.globalShortcut.register('CmdOrCtrl+Alt+I', () => {
       mainWindow.webContents.openDevTools({
         mode: 'undocked'
-      });
-    });
-  });
+      })
+    })
+  })
 
   mainWindow.on('blur', () => {
-    electron.globalShortcut.unregisterAll();
-  });
+    electron.globalShortcut.unregisterAll()
+  })
 
   // Prevent external resources from being loaded (like images)
   // when dropping them on the WebView.
   // See https://github.com/electron/electron/issues/5919
   mainWindow.webContents.on('will-navigate', (event) => {
-    event.preventDefault();
-  });
-
+    event.preventDefault()
+  })
 }
-
 // This method will be called when Electron has done everything
 // initialization and ready for creating browser windows.
 app.on('ready', createWindow)

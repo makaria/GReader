@@ -4,6 +4,24 @@ const {app, shell} = electron
 
 const menu = [
   {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Open',
+        accelerator: 'CmdOrCtrl+F',
+        click (item, focusedWindow) {
+          // @TODO
+        }
+      },
+      {
+        label: 'Close',
+        click (item, focusedWindow) {
+          // @TODO
+        }
+      }
+    ]
+  },
+  {
     label: 'View',
     submenu: [
       {

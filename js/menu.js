@@ -1,6 +1,6 @@
 'use strict'
 const electron = require('electron')
-const {app, shell} = electron
+const {app, shell, dialog, BrowserWindow} = electron
 
 const menu = [
   {
@@ -65,8 +65,23 @@ const menu = [
     role: 'help',
     submenu: [
       {
-        label: 'Learn More',
+        label: 'About',
+        click () {
+          dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            type: 'info',
+            buttons: ['OK'],
+            title: 'About',
+            message: 'GReader is a text reader, thanks for use'
+          })
+        }
+      },
+      {
+        label: 'website',
         click () { shell.openExternal('https://github.com/guohr/GReader') }
+      },
+      {
+        label: 'issues',
+        click () { shell.openExternal('https://github.com/guohr/GReader/issues') }
       }
     ]
   }

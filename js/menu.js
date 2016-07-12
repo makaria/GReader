@@ -24,8 +24,9 @@
         },
         {
           label: 'Close',
+          accelerator: 'CmdOrCtrl+W',
           click (item, focusedWindow) {
-            // @TODO
+            focusedWindow.close()
           }
         }
       ]

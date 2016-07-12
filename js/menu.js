@@ -19,7 +19,7 @@
           label: 'Open',
           accelerator: 'CmdOrCtrl+F',
           click (item, focusedWindow) {
-            // @TODO
+            focusedWindow.webContents.send('file-open')
           }
         },
         {

@@ -1,8 +1,16 @@
 'use strict'
 const electron = require('electron')
-const {app, shell, dialog, BrowserWindow} = electron
+const {app, shell, dialog, BrowserWindow, Menu} = electron
 
-const menu = [
+let setMenuFunc = () => {
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menuTpl))
+}
+
+let clearMenuFunc = () => {
+  Menu.setApplicationMenu(null)
+}
+
+const menuTpl = [
   {
     label: 'File',
     submenu: [
@@ -32,12 +40,6 @@ const menu = [
           if (focusedWindow) {
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
           }
-        }
-      },
-      {
-        label: 'menubar',
-        accelerator: process.platform === 'darwin' ? 'Alt+Command+M' : 'Ctrl+Shift+M',
-        click (item, focusedWindow) {
         }
       }
     ]
@@ -71,7 +73,7 @@ const menu = [
 
 if (process.platform === 'darwin') {
   const name = app.getName()
-  menu.unshift({
+  menuTpl.unshift({
     label: name,
     submenu: [
       {
@@ -114,7 +116,7 @@ if (process.platform === 'darwin') {
     ]
   })
   // Window menu.
-  menu[3].submenu = [
+  menuTpl[3].submenu = [
     {
       label: 'Close',
       accelerator: 'CmdOrCtrl+W',
@@ -140,10 +142,6 @@ if (process.platform === 'darwin') {
 }
 
 module.exports = {
-  setMenu: () => {
-    Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
-  },
-  clearMenu: () => {
-    Menu.setApplicationMenu(null)
-  }
+  setMenu: setMenuFunc,
+  clearMenu: clearMenuFunc
 }

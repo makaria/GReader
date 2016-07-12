@@ -1,5 +1,7 @@
 {
     "rules": {
+        "class-name": true,
+        "comment-format": [true, "check-space"],
         "curly": true,
         "eofline": true,
         "indent": "spaces",
@@ -22,14 +24,21 @@
         "no-use-before-declare": true,  
         "no-var-keyword": true,
         "no-var-requires": true,
-        "one-line": ["check-catch", "check-else"],
+        "one-line": [true, "check-catch", "check-else"],
         "only-arrow-functions": true,
-        "quotemark": ["single"],
+        "quotemark": [true, "single"],
         "semicolon": "never",
         "switch-default": true,
         "triple-equals": true,
         "use-isnan": true,
+        "use-strict": [true],
         "variable-name": "check-format",
-        "use-strict": [true]
+        "whitespace": [true, 
+            "check-branch", 
+            "check-operator", 
+            "check-separator",
+            "check-type",
+            "check-module"
+        ]
     }
 }

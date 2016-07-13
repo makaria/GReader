@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <!-- 3. Display the application -->
+  <!-- Display the application -->
   <body>
     <greader-app>Loading...</greader-app>
-    <!-- 1. Load libraries -->
+    <!-- Load libraries -->
      <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <!-- 2. Configure SystemJS -->
+    <!-- Configure SystemJS -->
     <script src="systemjs.config.js"></script>
+
+    <!-- ipcRenderer in electron -->
     <script src="js/ipcRender.js"></script>
     <script>
       System.import('app').catch(function(err){ console.error(err); });

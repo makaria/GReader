@@ -1,7 +1,7 @@
 'use strict'
 const electron = require('electron')
 const {app, BrowserWindow} = electron
-const menu = require('./js/menu')
+const menu = require('./app/menu')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will

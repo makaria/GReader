@@ -1,3 +1,6 @@
+@header-height: 40px;
+@footer-height: 20px;
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
@@ -5,8 +8,23 @@ h1 {
 }
 body {
   margin: 2em;
+  margin-top: @header-height;
+  margin-bottom: @footer-height;
+}
+
+greader-header, greader-content, greader-footer {
+  display: block;
+  width: 100%;
+}
+
+greader-header {
+  height: @header-height;
+  position: fixed;
+  top: 0;
 }
 
 greader-footer {
-  display: none;
+  height: @footer-height;
+  position: fixed;
+  bottom: 0;
 }

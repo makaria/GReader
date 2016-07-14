@@ -6,9 +6,7 @@ import {FooterComponent} from './footer.component'
   selector: 'greader-reader',
   template: `
   <greader-header></greader-header>
-  <br>
   <greader-content></greader-content>
-  <br>
   <greader-footer></greader-footer>
   `,
   directives: [HeaderComponent, ContentComponent, FooterComponent]

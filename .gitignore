@@ -36,12 +36,13 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# Visual Studio Code config files
+.vscode
+
 # typings
 typings
-typings/globals/core-js/typings.json
-typings/globals/jasmine/typings.json
-typings/index.d.ts
-typings/globals/core-js/typings.json
-typings/globals/node/typings.json
-typings/globals/node/index.d.ts
-typings/globals/jasmine/index.d.ts
+
+# main.js : main.js is generated from main.ts
+main.js
+main.js.map
+>>>>>>> 622c8c466806625297aed8c6eb63261c52c821b5

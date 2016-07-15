@@ -41,3 +41,7 @@ jspm_packages
 
 # typings
 typings
+
+# main.js : main.js is generated from main.ts
+main.js
+main.js.map

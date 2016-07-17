@@ -1,3 +1,6 @@
 extends: standard
 plugins:
   - standard
+
+globals:
+  ng: true

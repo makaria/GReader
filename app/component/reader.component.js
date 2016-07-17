@@ -4,7 +4,7 @@
   app.ReaderComponent =
     ng.core.Component({
       selector: 'greader-reader',
-      templateUrl: 'templates/reader.component.html',
+      templateUrl: 'app/view/reader.component.html',
       viewProviders: [app.HeaderComponent, app.ContentComponent, app.FooterComponent],
       directives: [app.HeaderComponent, app.ContentComponent, app.FooterComponent]
     })

@@ -1,9 +1,9 @@
 'use strict';
 (app => {
-  app.ContentComponent =
+  app.FooterComponent =
     ng.core.Component({
-      selector: 'greader-content',
-      templateUrl: 'templates/content.component.html'
+      selector: 'greader-footer',
+      templateUrl: 'app/view/footer.component.html'
     })
     .Class({
       constructor: function () {}

@@ -1,6 +1,8 @@
 # GReader
 
-[![Join the chat at https://gitter.im/guohr/GReader](https://badges.gitter.im/guohr/GReader.svg)](https://gitter.im/guohr/GReader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/guohr/GReader.svg?branch=master)](https://travis-ci.org/guohr/GReader)
+[![Join the chat at https://gitter.im/guohr/GReader](https://badges.gitter.im/guohr/GReader.svg)](https://gitter.im/guohr/GReader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/guohr/GReader.svg?branch=master)](https://travis-ci.org/guohr/GReader)
+[![CircleCI](https://circleci.com/gh/guohr/GReader/tree/master.svg?style=svg)](https://circleci.com/gh/guohr/GReader/tree/master)
 
 A text reader, powered by node.js and electron
 

@@ -4,11 +4,7 @@ import {ContentComponent} from './content.component'
 import {FooterComponent} from './footer.component'
 @Component({
   selector: 'greader-reader',
-  template: `
-  <greader-header></greader-header>
-  <greader-content></greader-content>
-  <greader-footer></greader-footer>
-  `,
+  templateUrl: 'app/templates/reader.component.html',
   directives: [HeaderComponent, ContentComponent, FooterComponent]
 })
 export class ReaderComponent { }

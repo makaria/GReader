@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 @Component({
   selector: 'greader-header',
-  template: 'header'
+  templateUrl: 'app/templates/header.component.html'
 })
 export class HeaderComponent { }

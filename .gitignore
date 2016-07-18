@@ -41,3 +41,6 @@ jspm_packages
 
 # map file for main.js
 main.js.map
+
+# typings
+typings

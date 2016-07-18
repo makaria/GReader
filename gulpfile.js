@@ -8,6 +8,7 @@ const config = JSON.parse(fs.readFileSync('package.json'))
 const appVersion = config.version
 const electronVersion = config.devDependencies['electron-prebuilt'].match(/[\d.]+/)[0]
 const eslint = require('gulp-eslint')
+const tslint = require('gulp-tslint')
 
 const options = {
   asar: true,
@@ -48,13 +49,19 @@ gulp.task('build', ['build:osx', 'build:linux', 'build:windows'])
 
 // lint
 
+gulp.task('lint:ts', () => {
+  return gulp.src(['*.ts', 'app/*.ts'])
+    .pipe(tslint())
+    .pipe(tslint.report('verbose'))
+})
+
 gulp.task('lint:js', () => {
-  return gulp.src(['*.js', 'test/*.js', 'app/*.js', 'js/*.js'])
+  return gulp.src(['*.js', 'test/*.js', 'js/*.js'])
   .pipe(eslint())
   .pipe(eslint.format())
 })
 
-gulp.task('lint', ['lint:js'])
+gulp.task('lint', ['lint:js', 'lint:ts'])
 
 gulp.task('test', () => {
   return gulp.src('test/test.js', {read: false})

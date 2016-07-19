@@ -50,7 +50,7 @@ gulp.task('build', ['build:osx', 'build:linux', 'build:windows'])
 // lint
 
 gulp.task('lint:ts', () => {
-  return gulp.src(['*.ts', 'app/*.ts'])
+  return gulp.src(['*.ts', 'app/**/*.ts'])
     .pipe(tslint())
     .pipe(tslint.report('verbose'))
 })

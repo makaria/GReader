@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 @Component({
   selector: 'greader-content',
   templateUrl: 'app/templates/content.component.html'

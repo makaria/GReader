@@ -27,9 +27,12 @@
     "less": "lessc less/styles.less styles.css",
     "postinstall": "typings install",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
     "typings": "typings",
-    "test": "gulp"
+    "lint": "npm run eslint && npm run tslint",
+    "eslint": "eslint *.js test/*.js js/*.js",
+    "tslint": "tslint *.ts app/*.ts app/*/*.ts",
+    "mocha": "mocha test/*.js",
+    "test": "npm run lint && npm run mocha"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",

@@ -44,3 +44,6 @@ main.js.map
 
 # typings
 typings
+
+# os x files
+*.DS_Store

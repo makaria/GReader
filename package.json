@@ -28,7 +28,8 @@
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "test": "gulp"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",

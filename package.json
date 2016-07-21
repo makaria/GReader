@@ -24,7 +24,7 @@
   "scripts": {
     "start": "tsc && npm run less && npm run elec",
     "elec": "electron main.js",
-    "less": "lessc less/styles.less styles.css",
+    "less": "lessc app/assets/less/styles.less app/assets/css/styles.css",
     "postinstall": "typings install",
     "tsc": "tsc",
     "typings": "typings",

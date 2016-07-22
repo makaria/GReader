@@ -47,3 +47,6 @@ typings
 
 # os x files
 *.DS_Store
+
+# generated css file
+app/assets/css/styles.css

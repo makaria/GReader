@@ -13,10 +13,7 @@ export class IpcService {
     }
 
     ipcRenderer.on(channel, wrappedListener)
-
-    return () => {
-      ipcRenderer.removeListener(channel, wrappedListener)
-    }
+    return this
   }
 
   send(channel: string, data?: any) {

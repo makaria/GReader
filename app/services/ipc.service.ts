@@ -1,5 +1,5 @@
-import { Injectable, ApplicationRef } from '@angular/core'
-import { ipcRenderer } from 'electron'
+import {Injectable, ApplicationRef} from '@angular/core'
+import {ipcRenderer} from 'electron'
 
 @Injectable()
 export class IpcService {

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core'
+import {Component} from '@angular/core'
 import {ReaderComponent} from './reader.component'
-import { BookService } from '../services/book.service'
+import {BookService} from '../services/book.service'
 import {BookShelfModel} from '../models/bookshelf.model'
 import {BookModel} from '../models/book.model'
-import { OnInit } from '@angular/core'
+import {OnInit} from '@angular/core'
 @Component({
   selector: 'greader-app',
   templateUrl: 'app/templates/app.component.html',

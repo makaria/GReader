@@ -1,8 +1,11 @@
 // layouts
 @header-height: 40px;
-@footer-height: 20px;
 @header-button-width: 10px;
 @header-button-margin: 2px;
+
+@footer-height: 20px;
+@footer-left-navigation-width: 15%;
+@footer-right-navigation-width: 15%;
 
 // colors
 @text-color: black;
@@ -13,11 +16,29 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+
 body {
   margin: 2em;
   margin-top: @header-height;
   margin-bottom: @footer-height;
   color: @text-color;
+}
+
+.left {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.right {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.center {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 greader-app, greader-reader {
@@ -31,6 +52,7 @@ greader-app, greader-reader {
 greader-header, greader-content, greader-footer {
   display: block;
   width: 100%;
+  text-align: center;
 }
 
 greader-header {
@@ -50,21 +72,19 @@ greader-footer {
   height: @footer-height;
   position: fixed;
   bottom: 0;
-}
 
-.left {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-}
+  .left {
+    width: @footer-left-navigation-width;
+  }
 
-.right {
-  display: inline-block;
-  position: absolute;
-  right: 0;
-}
+  .right {
+    width: @footer-right-navigation-width;
+  }
 
-.center {
-  display: inline-block;
-  margin: auto 0;
+  .center {
+    width: 100% - @footer-left-navigation-width - @footer-right-navigation-width;
+    span {
+      width: 50%;
+    }
+  }
 }

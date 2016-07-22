@@ -1,4 +1,4 @@
-export class Section{
+export class SectionInterface{
   name: string
   order: number
 }

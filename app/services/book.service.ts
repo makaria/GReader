@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core'
-import {BookShelf} from '../model/bookshelf'
-import {Book} from '../model/book'
+import {BookShelfModel} from '../models/bookshelf.model'
+import {BookModel} from '../models/book.model'
 @Injectable()
 export class BookService {
-  getBookShelfs(): [BookShelf] {
-      let a: BookShelf
+  getBookShelfs(): [BookShelfModel] {
+      let a: BookShelfModel
       return [a]
   }
 
-  getCurrentBook(): Book {
-      let b: Book
+  getCurrentBook(): BookModel {
+      let b: BookModel
       return b
   }
 }

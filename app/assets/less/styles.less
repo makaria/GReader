@@ -1,7 +1,12 @@
+// layouts
 @header-height: 40px;
 @footer-height: 20px;
 @header-button-width: 10px;
 @header-button-margin: 2px;
+
+// colors
+@text-color: black;
+@header-button-color: @text-color;
 
 h1 {
   color: #369;
@@ -12,6 +17,7 @@ body {
   margin: 2em;
   margin-top: @header-height;
   margin-bottom: @footer-height;
+  color: @text-color;
 }
 
 greader-app, greader-reader {
@@ -35,6 +41,8 @@ greader-header {
   a {
     width: @header-button-width;
     margin: @header-button-margin;
+    background: transparent;
+    color: @header-button-color;
   }
 }
 

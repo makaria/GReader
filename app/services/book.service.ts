@@ -14,4 +14,8 @@ export class BookService {
       let b: BookModel
       return b
   }
+
+  appendBook(filenames: [string]) {
+    // @TODO
+  }
 }

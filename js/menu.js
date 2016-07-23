@@ -19,7 +19,8 @@
           label: 'Open',
           accelerator: 'CmdOrCtrl+F',
           click (item, focusedWindow) {
-            focusedWindow.webContents.send('file-open')
+            let filename = dialog.showOpenDialog({properties: ['openFile']})
+            focusedWindow.webContents.send('file-open', filename)
           }
         },
         {

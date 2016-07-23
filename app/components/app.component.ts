@@ -4,18 +4,21 @@ import {BookService} from '../services/book.service'
 import {BookShelfModel} from '../models/bookshelf.model'
 import {BookModel} from '../models/book.model'
 import {OnInit} from '@angular/core'
+import {IpcService} from '../services/ipc.service'
 @Component({
   selector: 'greader-app',
   templateUrl: 'app/templates/app.component.html',
   directives: [ReaderComponent],
-  providers: [BookService, BookModel]
+  providers: [BookService, BookModel, IpcService]
 })
 export class AppComponent implements OnInit {
   bookShelfs: [BookShelfModel]
   currentBook: BookModel
 
-  constructor(private bookService: BookService) {
-
+  constructor(private bookService: BookService, private ipcService: IpcService) {
+    ipcService.subscribe('file-open', (event, filenames) => {
+      bookService.appendBook(filenames)
+    })
   }
   ngOnInit() {
     this.bookShelfs = this.bookService.getBookShelfs()

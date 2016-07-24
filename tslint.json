@@ -31,7 +31,7 @@
         "triple-equals": true,
         "use-isnan": true,
         "use-strict": [true],
-        "variable-name": [true, "check-format"],
+        "variable-name": [true, "check-format", "allow-leading-underscore"],
         "whitespace": [true,
             "check-branch",
             "check-operator",

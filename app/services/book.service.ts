@@ -6,6 +6,11 @@ import {BookShelfModel} from '../models/bookshelf.model'
 export class BookService {
   private _bookShelfs: BookShelfInterface[]
   private _currentBook: BookInterface
+
+  constructor() {
+    this._bookShelfs = new Array<BookShelfInterface>()
+  }
+
   get bookShelfs(): BookShelfInterface[] {
       return this._bookShelfs
   }

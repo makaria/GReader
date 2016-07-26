@@ -5,7 +5,7 @@
         "curly": true,
         "eofline": true,
         "indent": [true, "spaces"],
-        "interface-name": [true, "always-prefix"],
+//        "interface-name": [true, "always-prefix"],
         "jsdoc-format": true,
         "max-line-length": [true, 120],
         "no-arg": true,

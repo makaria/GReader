@@ -13,10 +13,10 @@
 
   const menuTpl = [
     {
-      label: 'File',
+      label: '&File',
       submenu: [
         {
-          label: 'Open',
+          label: '&Open',
           accelerator: 'CmdOrCtrl+F',
           click (item, focusedWindow) {
             let filename = dialog.showOpenDialog({properties: ['openFile']})
@@ -24,19 +24,23 @@
           }
         },
         {
-          label: 'Close',
+          label: '&Close',
           accelerator: 'CmdOrCtrl+W',
+          role: 'close'
+        },
+        {
+          label: '&Preferences',
           click (item, focusedWindow) {
-            focusedWindow.close()
+            // @TODO show preferences windows
           }
         }
       ]
     },
     {
-      label: 'View',
+      label: '&View',
       submenu: [
         {
-          label: 'Full Screen',
+          label: '&Full Screen',
           accelerator: process.platform === 'darwin' ? 'Ctrl+Command+F' : 'F11',
           type: 'checkbox',
           click (item, focusedWindow) {
@@ -48,11 +52,41 @@
       ]
     },
     {
-      label: 'Help',
+      label: '&Format',
+      submenu: [
+        {
+          label: '&Font'
+        },
+        {
+          label: '&Color'
+        }
+      ]
+    },
+    {
+      label: '&Window',
+      submenu: [
+        {
+          label: '&Close',
+          accelerator: 'CmdOrCtrl+W',
+          role: 'close'
+        },
+        {
+          label: '&Minimize',
+          accelerator: 'CmdOrCtrl+M',
+          role: 'minimize'
+        },
+        {
+          label: '&Zoom',
+          role: 'zoom'
+        }
+      ]
+    },
+    {
+      label: '&Help',
       role: 'help',
       submenu: [
         {
-          label: 'About',
+          label: '&About',
           click () {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
               type: 'info',
@@ -63,11 +97,11 @@
           }
         },
         {
-          label: 'website',
+          label: '&Website',
           click () { shell.openExternal('https://github.com/guohr/GReader') }
         },
         {
-          label: 'issues',
+          label: '&Issues',
           click () { shell.openExternal('https://github.com/guohr/GReader/issues') }
         }
       ]
@@ -80,14 +114,14 @@
       label: name,
       submenu: [
         {
-          label: 'About ' + name,
+          label: '&About ' + name,
           role: 'about'
         },
         {
           type: 'separator'
         },
         {
-          label: 'Services',
+          label: '&Services',
           role: 'services',
           submenu: []
         },
@@ -95,7 +129,7 @@
           type: 'separator'
         },
         {
-          label: 'Hide ' + name,
+          label: '&Hide ' + name,
           accelerator: 'Command+H',
           role: 'hide'
         },
@@ -105,40 +139,40 @@
           role: 'hideothers'
         },
         {
-          label: 'Show All',
+          label: '&Show All',
           role: 'unhide'
         },
         {
           type: 'separator'
         },
         {
-          label: 'Quit',
+          label: '&Quit',
           accelerator: 'Command+Q',
           click () { app.quit() }
         }
       ]
     })
     // Window menu.
-    menuTpl[3].submenu = [
+    menuTpl[4].submenu = [
       {
-        label: 'Close',
+        label: '&Close',
         accelerator: 'CmdOrCtrl+W',
         role: 'close'
       },
       {
-        label: 'Minimize',
+        label: '&Minimize',
         accelerator: 'CmdOrCtrl+M',
         role: 'minimize'
       },
       {
-        label: 'Zoom',
+        label: '&Zoom',
         role: 'zoom'
       },
       {
         type: 'separator'
       },
       {
-        label: 'Bring All to Front',
+        label: '&Bring All to Front',
         role: 'front'
       }
     ]

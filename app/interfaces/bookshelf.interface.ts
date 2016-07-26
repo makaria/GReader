@@ -4,5 +4,5 @@ export interface BookShelfInterface{
   name: string
   order: number
   books: [BookInterface]
-  appendBook(filenames: string[]): void
+  appendBook(filenames: Array<string>): void
 }

@@ -12,8 +12,8 @@ import {IpcService} from '../services/ipc.service'
   providers: [BookService, BookModel, IpcService]
 })
 export class AppComponent implements OnInit {
-  bookShelfs: BookShelfModel[]
-  book: BookModel
+  private bookShelfs: Array<BookShelfModel>
+  private book: BookModel
 
   constructor(private bookService: BookService, private ipcService: IpcService) {
     ipcService.subscribe('file-open', (event, filenames) => {
@@ -22,5 +22,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.bookShelfs = this.bookService.bookShelfs
+    this.book = this.bookService.currentBook
   }
  }

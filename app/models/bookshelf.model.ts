@@ -5,7 +5,7 @@ export class BookShelfModel implements BookShelfInterface {
   name: string
   order: number
   books: [BookModel]
-  appendBook(filenames: string[]): void {
+  appendBook(filenames: Array<string>): void {
     // @TODO
   }
 }

@@ -4,22 +4,22 @@ import {BookInterface} from '../interfaces/book.interface'
 import {BookShelfModel} from '../models/bookshelf.model'
 @Injectable()
 export class BookService {
-  private _bookShelfs: BookShelfInterface[]
+  private _bookShelfs: Array<BookShelfInterface>
   private _currentBook: BookInterface
 
   constructor() {
     this._bookShelfs = new Array<BookShelfInterface>()
   }
 
-  get bookShelfs(): BookShelfInterface[] {
+  get bookShelfs(): Array<BookShelfInterface> {
       return this._bookShelfs
   }
 
-  set bookShelfs(val: BookShelfInterface[]) {
+  set bookShelfs(val: Array<BookShelfInterface>) {
     this._bookShelfs = val
   }
 
-  appendBook(filenames: string[], bookshelf: BookShelfInterface = null) {
+  appendBook(filenames: Array<string>, bookshelf: BookShelfInterface = null) {
     // @TODO
     let shelf = bookshelf
     if (shelf === null) {

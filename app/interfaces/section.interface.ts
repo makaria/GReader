@@ -1,4 +1,4 @@
-export class SectionInterface{
+export interface SectionInterface{
   name: string
   order: number
 }

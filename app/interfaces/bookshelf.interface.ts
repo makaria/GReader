@@ -1,7 +1,8 @@
 import {BookInterface} from './book.interface'
 
-export class BookShelfInterface{
+export interface BookShelfInterface{
   name: string
   order: number
   books: [BookInterface]
+  appendBook(filenames: string[]): void
 }

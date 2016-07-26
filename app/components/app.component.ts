@@ -12,7 +12,7 @@ import {IpcService} from '../services/ipc.service'
   providers: [BookService, BookModel, IpcService]
 })
 export class AppComponent implements OnInit {
-  bookShelfs: Array<BookShelfModel>
+  bookShelfs: BookShelfModel[]
   book: BookModel
 
   constructor(private bookService: BookService, private ipcService: IpcService) {

@@ -1,5 +1,5 @@
 import {SectionInterface} from './section.interface'
-export class ChapterInterface {
+export interface ChapterInterface {
   name: string
   order: number
   sections: [SectionInterface]

@@ -1,4 +1,4 @@
-export class BookMarkInterface{
+export interface BookMarkInterface{
   id: number
   name: string
 }

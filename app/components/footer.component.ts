@@ -12,14 +12,14 @@ export class FooterComponent implements OnInit {
   private _book: BookInterface
   private _firstPageNumber: number
   private _secondPageNumber: number
-  private _forwardJumpPage: number
-  private _backwardJumpPage: number
+  private _forwardJumpPageNumber: number
+  private _backwardJumpPageNumber: number
   constructor(private bookService: BookService, private ipcService: IpcService) {
     this._book = bookService.currentBook
     this._firstPageNumber = 1
     this._secondPageNumber = 2
-    this._forwardJumpPage = -1
-    this._secondPageNumber = -1
+    this._forwardJumpPageNumber = -1
+    this._backwardJumpPageNumber = -1
   }
 
   ngOnInit() {
@@ -34,11 +34,11 @@ export class FooterComponent implements OnInit {
     return this._secondPageNumber
   }
 
-  get forwardJumpPage(): number {
-    return this._forwardJumpPage
+  get forwardJumpPageNumber(): number {
+    return this._forwardJumpPageNumber
   }
 
-  get backwardJumpPage(): number {
-    return this._backwardJumpPage
+  get backwardJumpPageNumber(): number {
+    return this._backwardJumpPageNumber
   }
  }

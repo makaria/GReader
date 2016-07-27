@@ -74,3 +74,6 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
+// set dock icon on mac os x
+app.dock.setIcon(path.join(__dirname, '/app/assets/image/logo-128x128.png'))

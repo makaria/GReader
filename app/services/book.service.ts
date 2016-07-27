@@ -4,19 +4,19 @@ import {BookInterface} from '../interfaces/book.interface'
 import {BookShelfModel} from '../models/bookshelf.model'
 @Injectable()
 export class BookService {
-  private _bookShelfs: Array<BookShelfInterface>
+  private _bookShelves: Array<BookShelfInterface>
   private _currentBook: BookInterface
 
   constructor() {
-    this._bookShelfs = new Array<BookShelfInterface>()
+    this._bookShelves = new Array<BookShelfInterface>()
   }
 
-  get bookShelfs(): Array<BookShelfInterface> {
-      return this._bookShelfs
+  get bookShelves(): Array<BookShelfInterface> {
+      return this._bookShelves
   }
 
-  set bookShelfs(val: Array<BookShelfInterface>) {
-    this._bookShelfs = val
+  set bookShelves(val: Array<BookShelfInterface>) {
+    this._bookShelves = val
   }
 
   appendBook(filenames: Array<string>, bookshelf: BookShelfInterface = null) {
@@ -45,11 +45,11 @@ export class BookService {
     // return the default bookshelf
 
     // if bookshelf list are empty, create one bookshelf
-    if (this._bookShelfs.length === 0) {
-      this._bookShelfs.push(new BookShelfModel())
+    if (this._bookShelves.length === 0) {
+      this._bookShelves.push(new BookShelfModel())
     }
 
     // return the first shelf in the list
-    return this._bookShelfs[0]
+    return this._bookShelves[0]
   }
 }

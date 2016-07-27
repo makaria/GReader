@@ -12,7 +12,7 @@ import {IpcService} from '../services/ipc.service'
   providers: [BookService, BookModel, IpcService]
 })
 export class AppComponent implements OnInit {
-  private bookShelfs: Array<BookShelfModel>
+  private bookShelves: Array<BookShelfModel>
   private book: BookModel
 
   constructor(private bookService: BookService, private ipcService: IpcService) {
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     })
   }
   ngOnInit() {
-    this.bookShelfs = this.bookService.bookShelfs
+    this.bookShelves = this.bookService.bookShelves
     this.book = this.bookService.currentBook
   }
  }

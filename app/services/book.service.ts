@@ -6,6 +6,7 @@ import {BookShelfModel} from '../models/bookshelf.model'
 export class BookService {
   private _bookShelves: Array<BookShelfInterface>
   private _currentBook: BookInterface
+  private _currentBookShelf: BookShelfInterface
 
   constructor() {
     this._bookShelves = new Array<BookShelfInterface>()
@@ -23,7 +24,7 @@ export class BookService {
     // @TODO
     let shelf = bookshelf
     if (shelf === null) {
-      shelf = this.defaultBookShelf()
+      shelf = this.currentBookShelf
     }
 
     shelf.appendBook(filenames)
@@ -41,15 +42,10 @@ export class BookService {
     return this._currentBook
   }
 
-  defaultBookShelf(): BookShelfInterface {
-    // return the default bookshelf
-
-    // if bookshelf list are empty, create one bookshelf
-    if (this._bookShelves.length === 0) {
-      this._bookShelves.push(new BookShelfModel())
+  get currentBookShelf(): BookShelfInterface {
+    if (this._currentBookShelf === null) {
+      this._currentBookShelf = new BookShelfModel
     }
-
-    // return the first shelf in the list
-    return this._bookShelves[0]
+    return this._currentBookShelf
   }
 }

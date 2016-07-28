@@ -10,7 +10,7 @@ import {IpcService} from '../services/ipc.service'
 export class BookShelfComponent implements OnInit {
   private _bookShelf: BookShelfInterface
   constructor(private bookService: BookService, private ipcService: IpcService) {
-    this._bookShelf = bookService.defaultBookShelf()
+    this._bookShelf = bookService.currentBookShelf
   }
 
   ngOnInit() {

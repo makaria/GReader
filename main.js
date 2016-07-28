@@ -76,4 +76,6 @@ app.on('activate', function () {
 })
 
 // set dock icon on mac os x
-app.dock.setIcon(path.join(__dirname, '/app/assets/image/logo-128x128.png'))
+if (process.platform === 'darwin') {
+  app.dock.setIcon(path.join(__dirname, '/app/assets/image/logo-128x128.png'))
+}

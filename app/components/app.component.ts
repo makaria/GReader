@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core'
 import {BookShelfComponent} from './bookshelf.component'
 import {BookService} from '../services/book.service'
-import {BookShelfModel} from '../models/bookshelf.model'
 import {BookModel} from '../models/book.model'
 import {IpcService} from '../services/ipc.service'
+import {BookShelfInterface} from '../interfaces/bookshelf.interface'
 @Component({
   selector: 'greader-app',
   templateUrl: 'app/templates/app.component.html',
@@ -11,7 +11,7 @@ import {IpcService} from '../services/ipc.service'
   providers: [BookService, BookModel, IpcService]
 })
 export class AppComponent implements OnInit {
-  private bookShelves: Array<BookShelfModel>
+  private bookShelves: Array<BookShelfInterface>
   private book: BookModel
 
   constructor(private bookService: BookService, private ipcService: IpcService) {

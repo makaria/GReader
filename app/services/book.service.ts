@@ -4,20 +4,14 @@ import {BookInterface} from '../interfaces/book.interface'
 import {BookShelfModel} from '../models/bookshelf.model'
 @Injectable()
 export class BookService {
-  private _bookShelves: Array<BookShelfInterface>
+  bookShelves: Array<BookShelfInterface>
   private _currentBook: BookInterface
   private _currentBookShelf: BookShelfInterface
 
   constructor() {
-    this._bookShelves = new Array<BookShelfInterface>()
-  }
-
-  get bookShelves(): Array<BookShelfInterface> {
-      return this._bookShelves
-  }
-
-  set bookShelves(val: Array<BookShelfInterface>) {
-    this._bookShelves = val
+    this.bookShelves = new Array<BookShelfInterface>()
+    this._currentBook = null
+    this._currentBookShelf = null
   }
 
   appendBook(filenames: Array<string>, bookshelf: BookShelfInterface = null) {
@@ -46,6 +40,7 @@ export class BookService {
     if (this._currentBookShelf === null) {
       this._currentBookShelf = new BookShelfModel
     }
+    console.log(this._currentBookShelf)
     return this._currentBookShelf
   }
 }

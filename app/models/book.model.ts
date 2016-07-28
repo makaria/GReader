@@ -1,10 +1,15 @@
 import {BookInterface} from '../interfaces/book.interface'
-import {ChapterModel} from './chapter.model'
-import {BookMarkModel} from './bookmark.model'
+import {ChapterInterface} from '../interfaces/chapter.interface'
+import {BookMarkInterface} from '../interfaces/bookmark.interface'
 
 export class BookModel implements BookInterface{
   title: string
   author: string
-  chapters: [ChapterModel]
-  bookmarks: [BookMarkModel]
+  filename: string
+  chapters: Array<ChapterInterface>
+  bookmarks: Array<BookMarkInterface>
+
+  constructor(filename: string) {
+    this.filename = filename
+  }
 }

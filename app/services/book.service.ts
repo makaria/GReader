@@ -40,7 +40,6 @@ export class BookService {
     if (this._currentBookShelf === null) {
       this._currentBookShelf = new BookShelfModel
     }
-    console.log(this._currentBookShelf)
     return this._currentBookShelf
   }
 }

@@ -1,5 +1,17 @@
-<div class="bookShelf" *ngFor="let book of books">
-  <div class="bookItem">
-    {{book.filename}}
-  </div>
-</div>
+<ul class="bookShelf">
+  <li class="bookItem" *ngFor="let book of books">
+    <div class="cover">
+      <a href="#" title="{{book.title}}">
+        <img src="{{book.cover}}" alt="book cover">
+      </a>
+    </div>
+    <div class="info">
+      <div class="title">
+        {{book.title}}
+      </div>
+      <div class="author">
+        {{book.author}}
+      </div>
+    </div>
+  </li>
+</ul>

@@ -11,6 +11,9 @@
 @text-color: black;
 @header-button-color: @text-color;
 
+@bookitem-width: 108px;
+@bookitem-cover-height: 80px;
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
@@ -89,14 +92,15 @@ greader-footer {
   }
 }
 
-.bookShelf {
-  display: table;
-}
-
-.bookShelfRow {
-  display: table-row;
-}
-
 .bookItem {
-  display: table-cell;
+  display: inline-block;
+  width: @bookitem-width;
+  overflow: hidden;
+  margin: 0 3px;
+
+  .cover {
+    img {
+      height: @bookitem-cover-height;
+    }
+  }
 }

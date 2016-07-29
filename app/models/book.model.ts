@@ -14,5 +14,7 @@ export class BookModel implements BookInterface{
   constructor(filename: string) {
     this.filename = filename
     this.title = path.basename(filename, path.extname(filename))
+    this.cover = 'app/assets/image/default-cover-128x128.png'
+    this.author =  ''
   }
 }

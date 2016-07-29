@@ -11,8 +11,11 @@
 @text-color: black;
 @header-button-color: @text-color;
 
-@bookitem-width: 108px;
-@bookitem-cover-height: 80px;
+@bookitem-cover-height: 128px;
+@bookitem-cover-width: 128px;
+@bookitem-margin: 3px;
+@bookitem-width: @bookitem-cover-width + 2 * @bookitem-margin;
+@bookitem-info-width: @bookitem-cover-width;
 
 h1 {
   color: #369;
@@ -96,11 +99,22 @@ greader-footer {
   display: inline-block;
   width: @bookitem-width;
   overflow: hidden;
-  margin: 0 3px;
+  margin: @bookitem-margin;
 
   .cover {
     img {
       height: @bookitem-cover-height;
+      width: @bookitem-cover-width;
+    }
+  }
+
+  .info {
+    .title, .author {
+      height: 1em;
+      width: @bookitem-info-width;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
     }
   }
 }

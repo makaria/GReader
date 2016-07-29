@@ -16,6 +16,7 @@
 @bookitem-margin: 3px;
 @bookitem-width: @bookitem-cover-width + 2 * @bookitem-margin;
 @bookitem-info-width: @bookitem-cover-width;
+@bookitem-line-height: 1.25em;
 
 h1 {
   color: #369;
@@ -110,7 +111,7 @@ greader-footer {
 
   .info {
     .title, .author {
-      height: 1em;
+      height: @bookitem-line-height;
       width: @bookitem-info-width;
       overflow: hidden;
       white-space: nowrap;

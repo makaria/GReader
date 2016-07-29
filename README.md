@@ -12,3 +12,6 @@ A text reader, powered by node.js and electron
 
 1. `npm install`
 2. `npm start`
+
+## License
+[GPLv3](./LICENSE)

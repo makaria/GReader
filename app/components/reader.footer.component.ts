@@ -4,11 +4,11 @@ import {BookService} from '../services/book.service'
 import {OnInit} from '@angular/core'
 import {IpcService} from '../services/ipc.service'
 @Component({
-  selector: 'greader-footer',
-  templateUrl: 'app/templates/footer.component.html'
+  selector: 'greader-reader-footer',
+  templateUrl: 'app/templates/reader.footer.component.html'
 })
 
-export class FooterComponent implements OnInit {
+export class ReaderFooterComponent implements OnInit {
   private _book: BookInterface
   private _firstPageNumber: number
   private _secondPageNumber: number

@@ -20,7 +20,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: path.join(__dirname, 'app/assets/image/logo-128x128.png')
+    icon: path.join(__dirname, 'app/assets/image/logo-128x128.png'),
+    titleBarStyle: 'hidden'
   })
 
   // and load the index.html of the app.

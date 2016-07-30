@@ -7,8 +7,8 @@
 @reader-footer-left-navigation-width: 15%;
 @reader-footer-right-navigation-width: 15%;
 
-@bookshelf-header-appname-height: 30px;
-@bookshelf-header-buttons-height: 40px;
+@bookshelf-header-appname-height: 25px;
+@bookshelf-header-buttons-height: 25px;
 @bookshelf-header-height: @bookshelf-header-appname-height + @bookshelf-header-buttons-height;
 
 // colors
@@ -126,10 +126,13 @@ greader-reader-footer {
 
 greader-bookshelf-header {
 	height: @bookshelf-header-height;
+  vertical-align: center;
 
 	.appname {
 		height: @bookshelf-header-appname-height;
     text-align: center;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
 	}
 
 	.buttons {

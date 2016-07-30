@@ -1,11 +1,15 @@
 // layouts
-@header-height: 40px;
-@header-button-width: 10px;
-@header-button-margin: 2px;
+@reader-header-height: 40px;
+@reader-header-button-width: 10px;
+@reader-header-button-margin: 2px;
 
-@footer-height: 20px;
-@footer-left-navigation-width: 15%;
-@footer-right-navigation-width: 15%;
+@reader-footer-height: 20px;
+@reader-footer-left-navigation-width: 15%;
+@reader-footer-right-navigation-width: 15%;
+
+@bookshelf-header-appname-height: 30px;
+@bookshelf-header-buttons-height: 40px;
+@bookshelf-header-height: @bookshelf-header-appname-height + @bookshelf-header-buttons-height;
 
 // colors
 @text-color: black;
@@ -26,8 +30,8 @@ h1 {
 
 body {
   margin: 2em;
-  margin-top: @header-height;
-  margin-bottom: @footer-height;
+  margin-top: @reader-header-height;
+  margin-bottom: @reader-footer-height;
   color: @text-color;
 }
 
@@ -56,40 +60,40 @@ greader-app, greader-reader {
   height: 100%;
 }
 
-greader-header, greader-content, greader-footer {
+greader-reader-header, greader-reader-content, greader-reader-footer {
   display: block;
   width: 100%;
   text-align: center;
 }
 
-greader-header {
-  height: @header-height;
+greader-reader-header {
+  height: @reader-header-height;
   position: fixed;
   top: 0;
 
   a {
-    width: @header-button-width;
-    margin: @header-button-margin;
+    width: @reader-header-button-width;
+    margin: @reader-header-button-margin;
     background: transparent;
     color: @header-button-color;
   }
 }
 
-greader-footer {
-  height: @footer-height;
+greader-reader-footer {
+  height: @reader-footer-height;
   position: fixed;
   bottom: 0;
 
   .left {
-    width: @footer-left-navigation-width;
+    width: @reader-footer-left-navigation-width;
   }
 
   .right {
-    width: @footer-right-navigation-width;
+    width: @reader-footer-right-navigation-width;
   }
 
   .center {
-    width: 100% - @footer-left-navigation-width - @footer-right-navigation-width;
+    width: 100% - @reader-footer-left-navigation-width - @reader-footer-right-navigation-width;
     span {
       width: 50%;
     }
@@ -118,4 +122,18 @@ greader-footer {
       text-align: center;
     }
   }
+}
+
+greader-bookshelf-header {
+	height: @bookshelf-header-height;
+
+	.appname {
+		height: @bookshelf-header-appname-height;
+    text-align: center;
+	}
+
+	.buttons {
+		height: @bookshelf-header-buttons-height;
+    text-align: center;
+	}
 }

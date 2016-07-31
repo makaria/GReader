@@ -126,17 +126,19 @@ greader-reader-footer {
 
 greader-bookshelf-header {
 	height: @bookshelf-header-height;
-  vertical-align: center;
-
-	.appname {
-		height: @bookshelf-header-appname-height;
+	.titlebar {
+    background: linear-gradient(#E8E6E8, #D2D0D2); /* Standard syntax */
+  }
+  .appname {
+    height: @bookshelf-header-appname-height;
+    line-height: @bookshelf-header-appname-height;
     text-align: center;
     -webkit-user-select: none;
     -webkit-app-region: drag;
-	}
+  }
 
-	.buttons {
-		height: @bookshelf-header-buttons-height;
+  .buttons {
+    height: @bookshelf-header-buttons-height;
     text-align: center;
-	}
+  }
 }

@@ -1,5 +1,5 @@
 <ul class="bookShelf">
-  <li class="bookItem" *ngFor="let book of books">
+  <li class="bookItem" *ngFor="let book of books" (click)="openBook(book)">
     <div class="cover">
       <a href="#" title="{{book.title}}">
         <img src="{{book.cover}}" alt="book cover">

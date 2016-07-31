@@ -20,4 +20,8 @@ export class BookShelfContentComponent implements OnInit {
   get books(): Array<BookInterface> {
     return this.bookShelf.books
   }
+
+  openBook(book: BookInterface) {
+    this.ipcService.send('open-reader', book)
+  }
 }

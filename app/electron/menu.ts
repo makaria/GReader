@@ -167,8 +167,12 @@ if (process.platform === 'darwin') {
   ]
 }
 
-const initMenu = () => {
+const initMenuFunc = () => {
   Menu.setApplicationMenu(Menu.buildFromTemplate(menuTpl))
 }
 
-export = {'initMenu': initMenu}
+export default class MenuUtils{
+    static initMenu() {
+       initMenuFunc()
+      }
+}

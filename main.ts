@@ -1,8 +1,7 @@
-'use strict'
-const electron = require('electron')
-const {app, BrowserWindow} = electron
-const {initMenu} = require('./app/electron/menu')
-const path = require('path')
+import * as electron from 'electron'
+import {app, BrowserWindow} from 'electron'
+import MenuUtils from './app/electron/menu'
+import * as path from 'path'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
@@ -27,7 +26,7 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadURL(path.join('file://', __dirname, 'index.html'))
 
-  initMenu()
+  MenuUtils.initMenu()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

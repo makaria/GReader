@@ -1,6 +1,6 @@
 import * as electron from 'electron'
 import {app, BrowserWindow} from 'electron'
-import MenuUtils from './app/electron/menu'
+import MenuUtils from './app/electron/menuutils'
 import * as path from 'path'
 
 // Keep a global reference of the window object, if you don't, the window will

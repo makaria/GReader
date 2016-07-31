@@ -1,7 +1,7 @@
 'use strict'
 const electron = require('electron')
 const {app, BrowserWindow} = electron
-const menu = require('./js/menu')
+const {initMenu} = require('./app/electron/menu')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -27,7 +27,8 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadURL(path.join('file://', __dirname, 'index.html'))
 
-  menu.setMenu()
+  console.log(initMenu)
+  initMenu()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

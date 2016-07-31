@@ -71,7 +71,7 @@ gulp.task('lint:ts', () => {
 })
 
 gulp.task('lint:js', () => {
-  return gulp.src(['*.js', 'test/*.js', 'js/*.js'])
+  return gulp.src(['test/*.js', 'gulpfile.js', 'systemjs.config.js'])
   .pipe(eslint())
   .pipe(eslint.format())
 })

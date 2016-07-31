@@ -1,18 +1,5 @@
 import {app, shell, dialog, BrowserWindow, Menu} from 'electron'
 
-interface subMenuType {
-  label?: string,
-  accelerator?: string,
-  click?: () => void,
-  role?: string,
-  type?: string,
-}
-
-interface MenuType {
-  label: string,
-  submenu: Array<subMenuType>
-}
-
 const menuTpl: Array<Electron.MenuItemOptions> = [
   {
     label: '&File',
@@ -180,6 +167,8 @@ if (process.platform === 'darwin') {
   ]
 }
 
-export function initMenu() {
+const initMenu = () => {
   Menu.setApplicationMenu(Menu.buildFromTemplate(menuTpl))
 }
+
+export = {'initMenu': initMenu}

@@ -37,6 +37,17 @@ const menuTpl: Array<Electron.MenuItemOptions> = [
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
           }
         }
+      },
+      {
+        label: 'Show &DevTools Window',
+        accelerator: 'CmdOrCtrl+Alt+I',
+        click (item, focusedWindow) {
+          if (focusedWindow) {
+            focusedWindow.webContents.openDevTools({
+              mode: 'undocked'
+            })
+          }
+        }
       }
     ]
   },

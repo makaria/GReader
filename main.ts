@@ -1,4 +1,3 @@
-import * as electron from 'electron'
 import {app, BrowserWindow, ipcMain} from 'electron'
 import MenuUtils from './app/electron/menuutils'
 import * as path from 'path'
@@ -14,16 +13,6 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
-
-const openDevWindows = () => {
-  for (let window of [mainWindow, readerWindow]) {
-    if (window) {
-        window.webContents.openDevTools({
-          mode: 'undocked'
-        })
-    }
-  }
-}
 
 const createMainWindow = () => {
   // Create the browser window.
@@ -47,23 +36,7 @@ const createMainWindow = () => {
     mainWindow = null
   })
 
-  // For some reason, Electron shortcuts are registered
-  // globally, which means that the app listers for shorcuts
-  // even if its not currently focused, potentially interferring
-  // with shorcuts registered by other applications.
-  // As a workaround, we register all shortcuts when the windows
-  // gains focus, and unregister them when the windows loses focus.
-  // See http://electron.atom.io/docs/api/global-shortcut/
-
-  mainWindow.on('focus', () => {
-    electron.globalShortcut.register('CmdOrCtrl+Alt+I', openDevWindows)
-  })
-
-  mainWindow.on('blur', () => {
-    electron.globalShortcut.unregisterAll()
-  })
-
-  // Prevent external resources from being loaded (like images)
+   // Prevent external resources from being loaded (like images)
   // when dropping them on the WebView.
   // See https://github.com/electron/electron/issues/5919
   mainWindow.webContents.on('will-navigate', (event) => {
@@ -71,15 +44,13 @@ const createMainWindow = () => {
   })
 }
 
-
 const createReaderWindow = () => {
   // Create the browser window.
   readerWindow = new BrowserWindow({
     width: 800,
     height: 600,
     icon: path.join(__dirname, 'app/assets/image/logo-128x128.png'),
-    titleBarStyle: 'hidden',
-    show: false
+    titleBarStyle: 'hidden'
   })
 
   // and load the index.html of the app.
@@ -91,22 +62,10 @@ const createReaderWindow = () => {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     readerWindow = null
-  })
-
-  // For some reason, Electron shortcuts are registered
-  // globally, which means that the app listers for shorcuts
-  // even if its not currently focused, potentially interferring
-  // with shorcuts registered by other applications.
-  // As a workaround, we register all shortcuts when the windows
-  // gains focus, and unregister them when the windows loses focus.
-  // See http://electron.atom.io/docs/api/global-shortcut/
-
-  readerWindow.on('focus', () => {
-    electron.globalShortcut.register('CmdOrCtrl+Alt+I', openDevWindows)
-  })
-
-  readerWindow.on('blur', () => {
-    electron.globalShortcut.unregisterAll()
+    if (mainWindow === null) {
+      createMainWindow()
+    }
+    mainWindow.show()
   })
 
   // Prevent external resources from being loaded (like images)
@@ -138,5 +97,6 @@ if (process.platform === 'darwin') {
 
 // bind ipc actions
 ipcMain.on('open-reader', (event, arg) => {
-
+  mainWindow.hide()
+  createReaderWindow()
 })

@@ -30,7 +30,7 @@
     "tsc": "tsc",
     "typings": "typings",
     "lint": "npm run eslint && npm run tslint",
-    "eslint": "eslint *.js test/*.js js/*.js",
+    "eslint": "eslint gulpfile.js test/*.js systemjs.config.js",
     "tslint": "tslint *.ts app/*.ts app/*/*.ts",
     "mocha": "mocha test/*.js",
     "test": "npm run lint && npm run mocha"

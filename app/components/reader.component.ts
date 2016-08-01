@@ -8,7 +8,8 @@ import {IpcService} from '../services/ipc.service'
 @Component({
   selector: 'greader-reader',
   templateUrl: 'app/templates/reader.component.html',
-  directives: [ReaderHeaderComponent, ReaderContentComponent, ReaderFooterComponent]
+  directives: [ReaderHeaderComponent, ReaderContentComponent, ReaderFooterComponent],
+  providers: [BookService, IpcService]
 })
 export class ReaderComponent implements OnInit {
   private _book: BookInterface

@@ -25,6 +25,7 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
+dist
 
 # Dependency directories
 node_modules
@@ -35,3 +36,19 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Visual Studio Code config files
+.vscode
+
+# map file for main.js
+main.js.map
+main.js
+
+# typings
+typings
+
+# os x files
+*.DS_Store
+
+# generated css file
+app/assets/css/styles.css

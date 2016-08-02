@@ -1,0 +1,144 @@
+// layouts
+@reader-header-height: 40px;
+@reader-header-button-width: 10px;
+@reader-header-button-margin: 2px;
+
+@reader-footer-height: 20px;
+@reader-footer-left-navigation-width: 15%;
+@reader-footer-right-navigation-width: 15%;
+
+@bookshelf-header-appname-height: 25px;
+@bookshelf-header-nav-height: 25px;
+@bookshelf-header-height: @bookshelf-header-appname-height + @bookshelf-header-nav-height;
+
+// colors
+@text-color: black;
+@header-button-color: @text-color;
+
+@bookitem-cover-height: 128px;
+@bookitem-cover-width: 128px;
+@bookitem-margin: 3px;
+@bookitem-width: @bookitem-cover-width + 2 * @bookitem-margin;
+@bookitem-info-width: @bookitem-cover-width;
+@bookitem-line-height: 1.25em;
+
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+body {
+  margin: 2em;
+  margin-top: @reader-header-height;
+  margin-bottom: @reader-footer-height;
+  color: @text-color;
+}
+
+.left {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.right {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.center {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+greader-app, greader-reader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+greader-reader-header, greader-reader-content, greader-reader-footer {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+greader-reader-header {
+  height: @reader-header-height;
+  position: fixed;
+  top: 0;
+
+  a {
+    width: @reader-header-button-width;
+    margin: @reader-header-button-margin;
+    background: transparent;
+    color: @header-button-color;
+  }
+}
+
+greader-reader-footer {
+  height: @reader-footer-height;
+  position: fixed;
+  bottom: 0;
+
+  .left {
+    width: @reader-footer-left-navigation-width;
+  }
+
+  .right {
+    width: @reader-footer-right-navigation-width;
+  }
+
+  .center {
+    width: 100% - @reader-footer-left-navigation-width - @reader-footer-right-navigation-width;
+    span {
+      width: 50%;
+    }
+  }
+}
+
+.bookItem {
+  display: inline-block;
+  width: @bookitem-width;
+  overflow: hidden;
+  margin: @bookitem-margin;
+
+  .cover {
+    img {
+      height: @bookitem-cover-height;
+      width: @bookitem-cover-width;
+    }
+  }
+
+  .info {
+    .title, .author {
+      height: @bookitem-line-height;
+      width: @bookitem-info-width;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+    }
+  }
+}
+
+greader-bookshelf-header, greader-reader-header {
+	height: @bookshelf-header-height;
+	.titlebar {
+    background: linear-gradient(#E8E6E8, #D2D0D2); /* Standard syntax */
+  }
+  .appname {
+    height: @bookshelf-header-appname-height;
+    line-height: @bookshelf-header-appname-height;
+    text-align: center;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+  }
+
+  .nav {
+    height: @bookshelf-header-nav-height;
+    text-align: center;
+  }
+}

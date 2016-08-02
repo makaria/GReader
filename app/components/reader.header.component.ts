@@ -3,4 +3,8 @@ import {Component} from '@angular/core'
   selector: 'greader-reader-header',
   templateUrl: 'app/templates/reader.header.component.html'
 })
-export class ReaderHeaderComponent { }
+export class ReaderHeaderComponent {
+  get platform(): string {
+    return process.platform
+  }
+}

@@ -15,6 +15,9 @@ export class ReaderComponent implements OnInit {
   private _book: BookInterface
   constructor(private bookService: BookService, private ipcService: IpcService) {
     this._book = bookService.currentBook
+    ipcService.subscribe('read-book', (event, args) => {
+      console.log('received read-book signal with arg: ' + args)
+    })
   }
 
   ngOnInit() {

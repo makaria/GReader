@@ -8,8 +8,8 @@
 @reader-footer-right-navigation-width: 15%;
 
 @bookshelf-header-appname-height: 25px;
-@bookshelf-header-buttons-height: 25px;
-@bookshelf-header-height: @bookshelf-header-appname-height + @bookshelf-header-buttons-height;
+@bookshelf-header-nav-height: 25px;
+@bookshelf-header-height: @bookshelf-header-appname-height + @bookshelf-header-nav-height;
 
 // colors
 @text-color: black;
@@ -124,7 +124,7 @@ greader-reader-footer {
   }
 }
 
-greader-bookshelf-header {
+greader-bookshelf-header, greader-reader-header {
 	height: @bookshelf-header-height;
 	.titlebar {
     background: linear-gradient(#E8E6E8, #D2D0D2); /* Standard syntax */
@@ -137,8 +137,8 @@ greader-bookshelf-header {
     -webkit-app-region: drag;
   }
 
-  .buttons {
-    height: @bookshelf-header-buttons-height;
+  .nav {
+    height: @bookshelf-header-nav-height;
     text-align: center;
   }
 }

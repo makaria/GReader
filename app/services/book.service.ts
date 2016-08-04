@@ -24,16 +24,12 @@ export class BookService {
     shelf.appendBook(filenames)
   }
 
-  openBook(book: BookInterface) {
-    // @TODO
-  }
-
-  closeBook(book: BookInterface) {
-    // @TODO
-  }
-
   get currentBook(): BookInterface {
     return this._currentBook
+  }
+
+  set currentBook(val: BookInterface) {
+    this._currentBook = val
   }
 
   get currentBookShelf(): BookShelfInterface {

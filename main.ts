@@ -99,4 +99,8 @@ if (process.platform === 'darwin') {
 ipcMain.on('open-reader', (event, arg) => {
   mainWindow.hide()
   createReaderWindow()
+  readerWindow.webContents.once('did-finish-load', () => {
+    console.log('sending message read-book')
+    readerWindow.webContents.send('read-book', 'whoooooooh!')
+  })
 })

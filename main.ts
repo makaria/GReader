@@ -50,7 +50,8 @@ const createReaderWindow = () => {
     width: 800,
     height: 600,
     icon: path.join(__dirname, 'app/assets/image/logo-128x128.png'),
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    show: false
   })
 
   // and load the index.html of the app.
@@ -61,7 +62,11 @@ const createReaderWindow = () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    readerWindow = null
+
+    // create a new reader window
+    createReaderWindow()
+
+    // show main window
     if (mainWindow === null) {
       createMainWindow()
     }
@@ -80,6 +85,7 @@ const createReaderWindow = () => {
 // initialization and ready for creating browser windows.
 app.on('ready', () => {
   createMainWindow()
+  createReaderWindow()
 })
 
 app.on('activate', () => {
@@ -87,6 +93,9 @@ app.on('activate', () => {
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createMainWindow()
+  }
+  if (readerWindow === null) {
+    createReaderWindow()
   }
 })
 
@@ -98,9 +107,6 @@ if (process.platform === 'darwin') {
 // bind ipc actions
 ipcMain.on('open-reader', (event, arg) => {
   mainWindow.hide()
-  createReaderWindow()
-  readerWindow.webContents.once('did-finish-load', () => {
-    console.log('sending message read-book')
-    readerWindow.webContents.send('read-book', 'whoooooooh!')
-  })
+  readerWindow.show()
+  readerWindow.webContents.send('reader-open-book', arg)
 })

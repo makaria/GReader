@@ -1,15 +1,22 @@
-<!-- buttons at left -->
-<div class="left">
-  <a href="#"><i class="fa fa-book"></i></a>
-  <a href="#"><i class="fa fa-list"></i></a>
-</div>
+<div class="titlebar">
+  <div class="appname" *ngIf="platform === 'darwin'">
+    GReader
+  </div>
+  <div class="buttons">
+    <!-- buttons at left -->
+    <div class="left">
+      <a href="#"><i class="fa fa-book"></i></a>
+      <a href="#"><i class="fa fa-list"></i></a>
+    </div>
 
-<!-- book title -->
-<span class="center">{{ title }}</span>
+    <!-- book title -->
+    <span class="center">{{ book.title }}</span>
 
-<!-- buttons at right -->
-<div class="right">
-  <a href="#"><i class="fa fa-font"></i></a>
-  <a href="#"><i class="fa fa-bookmark"></i></a>
-  <a href="#"><i class="fa fa-angle-down"></i></a>
+    <!-- buttons at right -->
+    <div class="right">
+      <a href="#"><i class="fa fa-font"></i></a>
+      <a href="#"><i class="fa fa-bookmark"></i></a>
+      <a href="#"><i class="fa fa-angle-down"></i></a>
+    </div>
+  </div>
 </div>

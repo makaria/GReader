@@ -1,7 +1,7 @@
 {
   'use strict'
   const System = require('systemjs')
-  let externalModules = ['electron', 'path']
+  let externalModules = ['electron', 'path', 'fs']
   for (let module of externalModules) {
     System.set(module, System.newModule(require(module)))
   }

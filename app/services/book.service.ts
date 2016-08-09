@@ -2,16 +2,15 @@ import {Injectable} from '@angular/core'
 import {BookShelfInterface} from '../interfaces/bookshelf.interface'
 import {BookInterface} from '../interfaces/book.interface'
 import {BookShelfModel} from '../models/bookshelf.model'
+import {BookModel} from '../models/book.model'
 @Injectable()
 export class BookService {
-  bookShelves: Array<BookShelfInterface>
   private _currentBook: BookInterface
   private _currentBookShelf: BookShelfInterface
 
   constructor() {
-    this.bookShelves = new Array<BookShelfInterface>()
-    this._currentBook = null
-    this._currentBookShelf = null
+    this._currentBook = new BookModel('')
+    this._currentBookShelf = new BookShelfModel()
   }
 
   appendBook(filenames: Array<string>, bookshelf: BookShelfInterface = null) {
@@ -24,16 +23,12 @@ export class BookService {
     shelf.appendBook(filenames)
   }
 
-  openBook(book: BookInterface) {
-    // @TODO
-  }
-
-  closeBook(book: BookInterface) {
-    // @TODO
-  }
-
   get currentBook(): BookInterface {
     return this._currentBook
+  }
+
+  set currentBook(val: BookInterface) {
+    this._currentBook = val
   }
 
   get currentBookShelf(): BookShelfInterface {

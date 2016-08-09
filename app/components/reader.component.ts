@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core'
+import {Component} from '@angular/core'
 import {ReaderHeaderComponent} from './reader.header.component'
 import {ReaderContentComponent} from './reader.content.component'
 import {ReaderFooterComponent} from './reader.footer.component'
@@ -11,16 +11,11 @@ import {IpcService} from '../services/ipc.service'
   directives: [ReaderHeaderComponent, ReaderContentComponent, ReaderFooterComponent],
   providers: [BookService, IpcService]
 })
-export class ReaderComponent implements OnInit {
-  private _book: BookInterface
+export class ReaderComponent {
   constructor(private bookService: BookService, private ipcService: IpcService) {
-    this._book = bookService.currentBook
-    ipcService.subscribe('read-book', (event, args) => {
-      console.log('received read-book signal with arg: ' + args)
+    ipcService.subscribe('reader-open-book', (event, book: BookInterface) => {
+      bookService.currentBook = book
+      console.log(bookService.currentBook)
     })
   }
-
-  ngOnInit() {
-    // @TODO
-  }
- }
+}

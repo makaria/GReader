@@ -1,5 +1,8 @@
 // layouts
-@reader-header-height: 40px;
+@appname-height: 25px;
+
+@reader-header-buttons-height: 25px;
+@reader-header-height: @appname-height + @reader-header-buttons-height;
 @reader-header-button-width: 10px;
 @reader-header-button-margin: 2px;
 
@@ -7,9 +10,8 @@
 @reader-footer-left-navigation-width: 15%;
 @reader-footer-right-navigation-width: 15%;
 
-@bookshelf-header-appname-height: 25px;
 @bookshelf-header-nav-height: 25px;
-@bookshelf-header-height: @bookshelf-header-appname-height + @bookshelf-header-nav-height;
+@bookshelf-header-height: @appname-height + @bookshelf-header-nav-height;
 
 // colors
 @text-color: black;
@@ -29,10 +31,14 @@ h1 {
 }
 
 body {
-  margin: 2em;
-  margin-top: @reader-header-height;
-  margin-bottom: @reader-footer-height;
   color: @text-color;
+  width: 100%;
+  height: 100%;
+}
+
+greader-reader-content {
+  margin-top: @reader-header-height;
+  height: calc(~'100%' - (@reader-header-height + @reader-footer-height));
 }
 
 .left {
@@ -93,7 +99,7 @@ greader-reader-footer {
   }
 
   .center {
-    width: 100% - @reader-footer-left-navigation-width - @reader-footer-right-navigation-width;
+    width: 100% - (@reader-footer-left-navigation-width + @reader-footer-right-navigation-width);
     span {
       width: 50%;
     }
@@ -124,21 +130,26 @@ greader-reader-footer {
   }
 }
 
-greader-bookshelf-header, greader-reader-header {
+greader-bookshelf-header {
 	height: @bookshelf-header-height;
-	.titlebar {
-    background: linear-gradient(#E8E6E8, #D2D0D2); /* Standard syntax */
-  }
-  .appname {
-    height: @bookshelf-header-appname-height;
-    line-height: @bookshelf-header-appname-height;
-    text-align: center;
-    -webkit-user-select: none;
-    -webkit-app-region: drag;
-  }
-
   .nav {
     height: @bookshelf-header-nav-height;
     text-align: center;
   }
+}
+
+.titlebar {
+  background: linear-gradient(#E8E6E8, #D2D0D2); /* Standard syntax */
+}
+
+.appname {
+  height: @appname-height;
+  line-height: @appname-height;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.bookContent {
+  text-align: left;
 }

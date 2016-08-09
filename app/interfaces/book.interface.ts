@@ -6,6 +6,7 @@ export interface BookInterface{
   author: string
   cover: string
   filename: string
+  content?: string
   chapters: Array<ChapterInterface>
   bookmarks: Array<BookMarkInterface>
 }

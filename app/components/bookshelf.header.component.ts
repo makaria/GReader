@@ -3,4 +3,8 @@ import {Component} from '@angular/core'
   selector: 'greader-bookshelf-header',
   templateUrl: 'app/templates/bookshelf.header.component.html'
 })
-export class BookShelfHeaderComponent { }
+export class BookShelfHeaderComponent {
+get platform(): string {
+    return process.platform
+  }
+}
